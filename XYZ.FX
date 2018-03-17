@@ -1,0 +1,28 @@
+320 CLS:PRINT "[ UTM ] XYZÊD";:GOSUB 900:GOSUB3200:GOTO300
+
+
+
+800 'CONTROL "ASOCIO"
+810 FORi=1TO actual:IF np$=TURE$(i) THEN np=i:RETURN
+820 NEXT
+830 actual=actual+1:np=actual:TURE$(actual)=np$:RETURN
+
+900 'CONTROL "ENTRO2P"
+910 INPUT" PTO: ",np$:LOCATE0,0:GOSUB 800:np1=np:np1$=TURE$(np)
+930 GOSUB990:PRINT" PTO: ";np$;" Ê ";:INPUT"",np$:LOCATE0,0:GOSUB 800:np2=np:np2$=TURE$(np)
+940 RETURN
+
+
+
+
+
+
+3199 'CALCULO Y SALIDA XY=>D
+3200 CLS:PRINT "XYÊD";:FORi=1TO500:NEXT
+3210 D=sqr((TURE(np1,0)-TURE(np2,0))^2+(TURE(np1,1)-TURE(np2,1))^2+(TURE(np1,2)-TURE(np2,2))^2)
+3220 CLS:SETn:PRINT "[Dutm](";np1$;"Ê";np2$;")=";:SETf3:PRINT   D;"m":RETURN
+
+5010 'introduccion de punto
+5020 CLS:INPUT "PTO: ",np$:GOSUB800
+5130 PRINT "PTO:";TURE$(np);
+5140 INPUT" X: ",TURE(np,0):INPUT "Y: ",TURE(np,1):input"Z: ",TURE(np,2)
